@@ -1,4 +1,3 @@
-#不加上一轮interview的
 import torch
 from torch_geometric.data import InMemoryDataset
 from torch_geometric.data import Data
