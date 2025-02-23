@@ -75,16 +75,13 @@ def init_config():
     parser.add_argument("--top_k", type=int, nargs="+", default=[5, 10, 15, 20, 30],
                     help="Cutoff values for computing metrics")
 
-
-    # 尽早设置 PYTHONHASHSEED 环境变量，确保 Python 内部 hash 相关操作可复现
+    args = parser.parse_args()
     os.environ['PYTHONHASHSEED'] = str(args.seed)
 
-    # 固定 Python、NumPy 和 Torch 的随机种子
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
 
-    # 根据设备参数判断是否使用 CUDA，并设置 CUDA 随机种子及 cudnn 的相关参数
     if 'cuda' in args.device.lower() and torch.cuda.is_available():
         args.cuda = True
         torch.cuda.manual_seed(args.seed)
