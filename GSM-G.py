@@ -25,7 +25,7 @@ from math import floor
 from sklearn.preprocessing import MultiLabelBinarizer
 import numpy as np
 import pandas as pd
-from get_dataset2 import MyDataset, MyData
+from get_dataset import MyDataset, MyData
 from metric import get_precision, get_ndcg
 
 clip_grad = 20.0
