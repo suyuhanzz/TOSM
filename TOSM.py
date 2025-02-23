@@ -26,7 +26,7 @@ from math import floor
 from sklearn.preprocessing import MultiLabelBinarizer
 import numpy as np
 import pandas as pd
-from get_dataset2 import MyDataset, MyData#get_dataset2不包含前一轮面试的 get_dataset5包含前一轮面试的
+from get_dataset import MyDataset, MyData
 from metric import get_precision, get_ndcg
 
 clip_grad = 20.0
@@ -697,15 +697,14 @@ def get_mlb(fname, vocab, round_num):
 def main(args):
     device = torch.device(args.device)
 
-    # label
-    vocab_path = '../AAAI/dazhong_data/jra_label.txt'
+    vocab_path = '../TOSM/exp_data/jra_label.txt'
     # Glove_vectors
-    word_vector_file = '../AAAI/dazhong_data/Glove_vectors_300.txt'
+    word_vector_file = '../TOSM/exp_data/Glove_vectors_300.txt'
     # 数据集
-    dataset_path = '../www/exp_data/dazhonground123.tsv'
+    dataset_path = '../TOSM/exp_data/three_rounds.tsv'
 
-    processed_data_path = '../www/processed_data'
-    save_root = '../www/saved_model'
+    processed_data_path = '../TOSM/processed_data'
+    save_root = '../TOSM/saved_model'
     params = []
     model_name="TOSM"
 
@@ -819,7 +818,7 @@ def main(args):
 
         params.append(model.vtm.posterior_mean) #加入前一轮的theta
         params.append(model.vtm.topic_vec)  ##加入前一轮的topic
-        torch.cuda.empty_cache()
+        #torch.cuda.empty_cache()
 
     # 输出结果
     #print(params)
