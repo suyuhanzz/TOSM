@@ -466,18 +466,18 @@ def get_mlb(fname, vocab, round_num):
 def main(args):
     device = torch.device(args.device)
 
-    vocab_path = '../AAAI/dazhong_data/jra_label.txt'
+    vocab_path = '../TOSM/exp_data/jra_label.txt'
     # Glove_vectors
-    word_vector_file = '../AAAI/dazhong_data/Glove_vectors_300.txt'
+    word_vector_file = '../TOSM/exp_data/Glove_vectors_300.txt'
     # 数据集
-    dataset_path = '../www/exp_data/dazhonground123.tsv'
+    dataset_path = '../TOSM/exp_data/three_rounds.tsv'
 
-    processed_data_path = '../www/processed_data'
-    save_root = '../www/saved_model'
+    processed_data_path = '../TOSM/processed_data'
+    save_root = '../TOSM/saved_model'
     params = []
     model_name="GSM-AT"
 
-    for round_num in ['1']:
+    for round_num in ['1','2','3']:
         args.multiround = round_num
         #begin = time.time()
         print('Model name:{}-seed:{}-num_epoch:{}-Start round:{}'.format(model_name,args.seed,args.num_epoch,args.multiround))
@@ -601,9 +601,9 @@ def main(args):
                 f"NDCG = {final_metrics[top_k]['ndcg']:.4f}")
             
 
-        params.append(model.vtm.posterior_mean)
-        params.append(model.vtm.topic_vec)
-        torch.cuda.empty_cache()
+        #params.append(model.vtm.posterior_mean)
+        #params.append(model.vtm.topic_vec)
+        #torch.cuda.empty_cache()
 
     # 输出结果
     #print(params)
