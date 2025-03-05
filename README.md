@@ -4,8 +4,9 @@
 ## 🌟 Introduction to TOSM
 **TOSM** (Topic-Oriented Suggestion Mode) is a novel multi-label classification task model designed based on the neural topic model, incorporating graph structure in the neural topic model, and designing a topic attention mechanism to combine the topic model and multi-label task.
 In the context of our paper, TOSM is mainly used to do skill keyword prediction for multiple rounds of interview questioning. This model is also applicable to general multi-label classification tasks.
-
 TOSM operates through two distinct stages: the Graph-based Topic Learning Module and the Topic-specific Keyword Suggestion Module.
+
+
 ---
 
 ## 📁 Data Description
