@@ -1,5 +1,3 @@
-##TOSM: topic_vec加上前一轮的，theta也加上前一轮的
-##TOSM1: topic_vec不加前一轮的
 import os
 import time
 import math
