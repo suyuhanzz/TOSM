@@ -328,8 +328,8 @@ class GSM(nn.Module):
         enc1 = torch.tanh(self.enc1_fc(input))  # enc1_fc   output
         enc2 = torch.tanh(self.enc2_fc(enc1))  # encoder2 output
 
-        self.prior_mean = self.mean_fc(enc2)  # posterior mean
-        prior_logvar = self.logvar_fc(enc2)  # posterior log variance
+        self.prior_mean = self.mean_fc(enc2)  # prior mean
+        prior_logvar = self.logvar_fc(enc2)  # prior log variance
         prior_var = prior_logvar.exp()
 
         # take sample
